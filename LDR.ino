@@ -1,8 +1,6 @@
-//set pin numbers
-//const won't change
 const int LED = 8;   //the number of the LED pin
 const int LDR = A0;  //the number of the LDR pin
-const int buzzer = 10;
+const int buzzer = 10; // the number of buzzer pin
 
 
 void setup() {
@@ -10,7 +8,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(LED, OUTPUT);  //initialize the LED pin as an output
   pinMode(LDR, INPUT);   //initialize the LDR pin as an input
-  pinMode(buzzer, OUTPUT);
+  pinMode(buzzer, OUTPUT); // initialize the buzzer pin as output
 }
 
 void loop() {
@@ -23,14 +21,14 @@ void loop() {
    if (ldrStatus <=300) {
 
     digitalWrite(LED, HIGH);               //turn LED on
-    tone(buzzer, 1000);
-    Serial.println("It's too dark, LED is turned ON");
+    tone(buzzer, 1000); // triggers buzzer to 1000 Hz frequency
+    Serial.println("It's too dark, LED is turned ON"); // print msg on serial monitor
     
    }
   else {
 
     digitalWrite(LED, LOW);          //turn LED off
-    noTone(buzzer);
-    Serial.println("Light is sufficient");
+    noTone(buzzer); // turns buzzer off
+    Serial.println("Light is sufficient"); // prints msg on serial monitor
   }
 }
